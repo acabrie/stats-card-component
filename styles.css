@@ -1,0 +1,165 @@
+
+:root{
+
+    --font-inter: 'Inter';
+    --font-lexend: 'Lexend Deca';
+
+    --font-size-1: 0.9375rem;
+    --font-size-2: 1rem;
+    --font-size-3: 1.65rem;
+
+    --soft-violet: hsl(277, 64%, 61%);
+}
+
+@media (min-width: 1170px){
+    :root{
+        --font-size-1: 0.9375rem;
+        --font-size-2: 1rem;
+        --font-size-3: 2.5rem;
+    }
+}
+
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+img{
+    margin: 0;
+}
+
+img,
+figure{
+    display: block;
+    max-width: 100%;
+}
+
+
+/* Utility Classes */
+
+.fs-1{font-size: var(--font-size-1);}
+.fs-2{font-size: var(--font-size-2);}
+.fs-3{font-size: var(--font-size-3);}
+
+.text-white{color: hsl(0, 0%, 100%);}
+.text-purple{color: var(--soft-violet);}
+.glass-white{color: hsla(0, 0%, 100%, 0.75);}
+.transparent-white{color: hsla(0, 0%, 100%, 0.6);}
+
+.font-inter{font-family: var(--font-inter);}
+.font-lexend{font-family: var(--font-lexend);}
+
+.fw-400{font-weight: 400;}
+.fw-700{font-weight: 700;}
+
+.upper{text-transform: uppercase;}
+
+
+.mt-1{
+    margin-top: 1rem;
+}
+
+/* Layout */
+
+
+body{
+    display: flex;
+    place-items: center;
+    background-color: hsl(233, 47%, 7%);
+    min-height: 100vh;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 2fr;
+    grid-template-areas: 
+        "left"
+        "right";
+    margin: auto;
+    width: 310px;
+    height: 800px;
+    background-color: hsl(244, 38%, 16%);
+    border-radius: 10px;
+}
+
+.left{
+    position: relative;
+    z-index: 0;
+    grid-area: left;
+    background-image: url(./images/image-header-mobile.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px 10px 0 0;
+    width: 100%;
+}
+
+.overlay{
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    background-color: hsla(277, 81%, 47%, 0.281);
+    border-radius: 10px 10px 0 0;
+}
+
+.right{
+    grid-area: right;
+    text-align: center;
+    padding: 2rem;
+   
+}
+
+.info{
+   line-height: 1.5rem;
+}
+
+.stats{
+    margin-top: 2rem;
+}
+
+@media (min-width: 1170px){
+
+    .container{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr;
+        grid-template-areas: 
+            "right left";
+            
+        width: 1200px;
+        height: 500px; 
+        margin: auto;   
+    }
+
+    .right{
+        text-align: left;
+        padding: 5rem;
+    }
+    .info{
+        margin-top: 2rem;
+    }
+
+    .stats{
+        display: flex;
+        justify-content: flex-start;
+        gap: 4rem;
+    }
+
+    .left{
+        background-image: url(./images/image-header-desktop.jpg);
+        border-radius: 0 10px 10px 0;
+    }
+
+    .overlay{
+        border-radius: 0 10px 10px 0;
+    }
+
+}
